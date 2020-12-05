@@ -21,7 +21,7 @@ class ResumoView(
 
     @SuppressLint("ResourceAsColor")
     fun exibirTotalReceitaNoResumo() {
-        val totalReceita = presenter.calcularTotalReceita()
+        val totalReceita = presenter.calcularTotalReceita
         with(view.resumo_card_receita) {
             text = totalReceita.moedaBrasileira()
             resumo_card_receita.setTextColor(corReceita)
@@ -30,7 +30,7 @@ class ResumoView(
 
     @SuppressLint("ResourceAsColor")
     fun exibirTotalDespesaNoResumo() {
-        val totalDespesa = presenter.calcularTotalDespesa()
+        val totalDespesa = presenter.calcularTotalDespesa
         with(view.resumo_card_despesa){
             text = totalDespesa.moedaBrasileira()
             setTextColor(corDespesa)
@@ -38,8 +38,8 @@ class ResumoView(
 
     }
 
-    fun exibirTotal() {
-        val total = presenter.calcularDiferenca()
+    fun  exibirTotal() {
+        val total = presenter.calcularDiferenca
         with(view.resumo_card_total){
 
             text = total.moedaBrasileira()
@@ -54,7 +54,11 @@ class ResumoView(
             }
 
         }
+    }
 
-
+    fun atualiza(){
+        exibirTotalReceitaNoResumo()
+        exibirTotalDespesaNoResumo()
+        exibirTotal()
     }
 }
